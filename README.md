@@ -349,7 +349,7 @@
   })();
 
   pupOnline = function() {
-    return API.sendChat("/me: Penumbra Bot Online!");
+    return API.sendChat("/me: Absolut Lithuania Bot Online!");
   };
 
   populateUserData = function() {
@@ -391,7 +391,7 @@
           secsLastActive = timeSinceLastActivity / 1000;
           if (user.getWarningCount() === 0) {
             user.warn();
-            _results.push(API.sendChat("@" + user.getUser().username + ", Eu não vi você votar durante 30 minutos.  Vote nos próximos 2 minutos, se não será removido."));
+            _results.push(API.sendChat("@" + user.getUser().username + ", I didnt saw you voting in the last 30 minutes.  Vote in the next 2 minutes or ill remove you."));
           } else if (user.getWarningCount() === 1) {
             lastWarned = user.getLastWarning();
             timeSinceLastWarning = now.getTime() - lastWarned.getTime();
@@ -399,7 +399,7 @@
             if (timeSinceLastWarning > twoMinutes) {
               user.warn();
               warnMsg = "@" + user.getUser().username;
-              warnMsg += ", Eu não vi você votar durante 32 minutos. Vote no próximo minuto ou eu o removerei, este é seu ultimo aviso.";
+              warnMsg += ", I didnt saw you in the last 32 minutes. Vote in the next minute or ill remove you, last warning";
               _results.push(API.sendChat(warnMsg));
             } else {
               _results.push(void 0);
@@ -411,7 +411,7 @@
             if (timeSinceLastWarning > oneMinute) {
               DJs = API.getDJs();
               if (DJs.length > 0 && DJs[0].id !== user.getUser().id) {
-                API.sendChat("@" + user.getUser().username + ", Você teve 2 avisos. Por favor, mantenha-se sempre votando.");
+                API.sendChat("@" + user.getUser().username + ", You had 2 warnings. Please, stay always voting.");
                 API.moderateRemoveDJ(id);
                 _results.push(user.warn());
               } else {
